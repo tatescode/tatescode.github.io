@@ -13,12 +13,9 @@ There should be whitespace between paragraphs.
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
 # Projects
-Project Name | Tools and Software | Purpose and Description
---- | --- | ---
-Threat Hunting | `RITA`, `Velociraptor`, `Elastic SIEM` | To provide quick references for threat hunting on endpoints and in a SIEM
-Python Scripts | `Python` | To have all my Python scripts in one place for reference and inspiration
-Bash Scripts | `BASH`, `PowerShell` | To have all my BASH and PowerShell scripts in one place for reference and inspiration
-WireShark | `WireShark` | WireShark projects showcase and cheatsheets
+| Project Name | Tools and Software | Purpose and Description |
+|:-------------|:-------------------|:------------------------|
+
 
 ## Header 2
 
