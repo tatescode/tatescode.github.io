@@ -13,9 +13,6 @@ There should be whitespace between paragraphs.
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
 # Projects
-| Project Name | Tools and Software | Purpose and Description |
-|:-------------|:-------------------|:------------------------|
-
 
 ## Header 2
 
@@ -54,7 +51,7 @@ end
 
 ###### Header 6
 
-| head1        | head two          | three |
+| Projects        | Tools/Technology          | Purpose |
 |:-------------|:------------------|:------|
 | ok           | good swedish fish | nice  |
 | out of stock | good and plenty   | nice  |
