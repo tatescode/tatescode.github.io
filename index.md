@@ -13,6 +13,11 @@ There should be whitespace between paragraphs.
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
 # Projects
+| Projects        | Tools/Technology          | Purpose |
+|:-------------|:------------------|:------|
+| Threat Hunting           | RITA, Velociraptor, Elastic | References for threat hunting tools and techniques  |
+| Scripting | Python, BASH, PowerShell   | Practical scripts used for automation  |
+| WireShark           | WireShark      | Malicious network traffic analysis with Wireshark   |
 
 ## Header 2
 
@@ -53,10 +58,9 @@ end
 
 | Projects        | Tools/Technology          | Purpose |
 |:-------------|:------------------|:------|
-| Threat Hunting           | `RITA``Velociraptor``Elastic` | References for threat hunting tools and techniques  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
+| Threat Hunting           | RITA, Velociraptor, Elastic | References for threat hunting tools and techniques  |
+| Scripting | Python, BASH, PowerShell   | Practical scripts used for automation  |
+| WireShark           | WireShark      | Malicious network traffic analysis with Wireshark   |
 
 ### There's a horizontal rule below this.
 
