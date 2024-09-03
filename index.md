@@ -12,11 +12,11 @@ There should be whitespace between paragraphs.
 
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
-### Projects
+# Projects
 
 | Projects        | Tools/Technology          | Purpose |
 |:-------------|:------------------|:------|
-| Threat Hunting           | RITA, Velociraptor, Elastic | References for threat hunting tools and techniques  |
+| [Threat Hunting](./threathunting.md)           | RITA, Velociraptor, Elastic | References for threat hunting tools and techniques  |
 | Scripting | Python, BASH, PowerShell   | Practical scripts used for automation  |
 | WireShark           | WireShark      | Malicious network traffic analysis with Wireshark   |
 
