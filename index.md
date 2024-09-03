@@ -16,7 +16,7 @@ There should be whitespace between paragraphs. We recommend including a README, 
 
 | Projects        | Tools/Technology          | Purpose |
 |:-------------|:------------------|:------|
-| [Threat Hunting](./threathunting/threathunting.md)           | RITA, Velociraptor, Elastic | References for threat hunting tools and techniques  |
+| [Threat Hunting](./threathunting)           | RITA, Velociraptor, Elastic | References for threat hunting tools and techniques  |
 | Scripting | Python, BASH, PowerShell   | Practical scripts used for automation  |
 | WireShark           | WireShark      | Malicious network traffic analysis with Wireshark   |
 
