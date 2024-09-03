@@ -2,7 +2,9 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+Hello! My name is Tate, I am passionate about securing systems and networks and am aiming to enter the field of Cybersecurity, specifically as a Security Operations Center (SOC) Analyst. 
+
+This site primarily contains projects and documentation that showcase my skills - but will also include some documentation and writeups for certain tools and software.
 
 [Link to another page](./another-page.html).
 
@@ -10,9 +12,13 @@ There should be whitespace between paragraphs.
 
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
-# Header 1
-
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+# Projects
+| Project Name        | Tools/Software          | Purpose & Description |
+|:-------------|:------------------|:------|
+| Threat Hunting           | `RITA`, `Velociraptor`, `Elastic SIEM` | To provide quick references for threat hunting on endpoints and in a SIEM               |
+| Python Scripts           | `Python`                               | To have all my Python scripts in one place for reference and inspiration                |
+| Bash Scripts             | `BASH`, `PowerShell`                   | To have all my BASH and PowerShell scripts in one place for reference and inspiration   |
+| WireShark                | `WireShark`                            | WireShark projects showcase and cheatsheets                                             |
 
 ## Header 2
 
