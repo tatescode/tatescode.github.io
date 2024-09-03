@@ -53,7 +53,7 @@ end
 
 | Projects        | Tools/Technology          | Purpose |
 |:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
+| Threat Hunting           | `RITA``Velociraptor``Elastic` | References for threat hunting tools and techniques  |
 | out of stock | good and plenty   | nice  |
 | ok           | good `oreos`      | hmm   |
 | ok           | good `zoute` drop | yumm  |
