@@ -11,7 +11,7 @@ This site primarily contains projects and documentation that showcase my skills 
 | Projects        | Tools/Technology          | Purpose |
 |:-------------|:------------------|:------|
 | [Threat Hunting](./threathunting/)  | RITA, Velociraptor, Elastic | References for threat hunting tools and techniques  |
-| [Scripting](./Scripting)/           | Python, BASH, PowerShell    | Practical scripts used for automation               |
+| [Scripting](./Scripting/)           | Python, BASH, PowerShell    | Practical scripts used for automation               |
 | [Wireshark](./Wireshark/)           | WireShark                   | Malicious network traffic analysis with Wireshark   |
 
 ## Use Cases
