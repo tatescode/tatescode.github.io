@@ -12,7 +12,7 @@ This site primarily contains projects and documentation that showcase my skills 
 |:-------------|:------------------|:------|
 | [Threat Hunting](./threathunting/)  | RITA, Velociraptor, Elastic | References for threat hunting tools and techniques  |
 | [Scripting](./Scripting)/           | Python, BASH, PowerShell    | Practical scripts used for automation               |
-| [Wireshark[(./Wireshark/)           | WireShark                   | Malicious network traffic analysis with Wireshark   |
+| [Wireshark](./Wireshark/)           | WireShark                   | Malicious network traffic analysis with Wireshark   |
 
 ## Use Cases
 * The creation of this page serves as documentation of my personal learning journey, as well as a respository for certain projects. However, anyone can use and benefit from the open-source projects and documentation in this repository.
