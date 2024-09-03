@@ -13,6 +13,7 @@ There should be whitespace between paragraphs.
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
 # Projects
+This is a table of contents with links to each project
 | Projects        | Tools/Technology          | Purpose |
 |:-------------|:------------------|:------|
 | Threat Hunting           | RITA, Velociraptor, Elastic | References for threat hunting tools and techniques  |
