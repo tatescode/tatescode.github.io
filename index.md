@@ -8,13 +8,16 @@ This site primarily contains projects and documentation that showcase my skills 
 
 # Projects
 
+If the link is bolded, that means I am actively uploading to it.
+
 | Projects        | Tools/Technology          | Purpose |
 |:-------------|:------------------|:------|
-| [Threat Hunting](./threathunting/)     | RITA, Velociraptor, Elastic                          | References for threat hunting tools and techniques  |
-| [Scripting](./Scripting/)              | Python, BASH, PowerShell                             | Practical scripts used for automation               |
-| [Wireshark](./Wireshark/)              | WireShark                                            | Malicious network traffic analysis with Wireshark   |
-| [Active Directory](./ActiveDirectory/) | Active Directory, Splunk, Sysmon, Atomic Red Team,   | Active Directory and Splunk Practice                |
+| **[Threat Hunting](./threathunting/)**    | RITA, Velociraptor, Elastic                          | References for threat hunting tools and techniques  |
+| [Scripting](./Scripting/)                 | Python, BASH, PowerShell                             | Practical scripts used for automation               |
+| **[Wireshark](./MalwareTrafficAnalysis/)**| WireShark, tshark, Linux, NetworkMiner               | Malicious network traffic analysis                  |
+| [Active Directory](./ActiveDirectory/)    | Active Directory, Splunk, Sysmon, Atomic Red Team,   | Active Directory and Splunk Practice                |
 
 ## Use Cases
-* The creation of this page serves as documentation of my personal learning journey, as well as a respository for certain projects. However, anyone can use and benefit from the open-source projects and documentation in this repository.
-* Some scripts and projects may be geared towards red team activities (e.g. penetration testing). In this case, do not use or distribute the software for purposes other than learning. I do not condone the use of hacking TTP's for malicious use.
+
+The creation of this page serves as documentation of my personal learning journey, as well as a respository for certain projects. However, anyone can use and benefit from the projects and documentation in this repository.
+
