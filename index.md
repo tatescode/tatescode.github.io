@@ -8,9 +8,9 @@ If the link is bolded, that means I am actively uploading to it.
 
 | Projects        | Tools/Technology          | Purpose |
 |:-------------|:------------------|:------|
-| **[Threat Hunting](./threathunting/)**                 | RITA, Velociraptor, Elastic                          | References for threat hunting tools and techniques  |
+| [Threat Hunting](./threathunting/)                   | RITA, Velociraptor, Elastic                          | References for threat hunting tools and techniques  |
 | [Scripting](./Scripting/)                              | Python, BASH, PowerShell                             | Practical scripts used for automation               |
-| **[MalwareTrafficAnalysis](./MalwareTrafficAnalysis/)**| WireShark, tshark, Linux, NetworkMiner               | Malicious network traffic analysis                  |
+| [MalwareTrafficAnalysis](./MalwareTrafficAnalysis/)    | WireShark, tshark, Linux, NetworkMiner               | Malicious network traffic analysis                  |
 | [Active Directory](./ActiveDirectory/)                 | Active Directory, Splunk, Sysmon, Atomic Red Team,   | Active Directory and Splunk Practice                |
 
 ## Use Cases
