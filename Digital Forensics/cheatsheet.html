@@ -1,0 +1,255 @@
+!<DOCTYPE=html>
+<html>
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    text-align: center;
+  }
+  .header {
+    font-weight: bold;
+    background-color: #f2f2f2;
+  }
+</style>
+
+<div class="grid-container">
+  <div class="grid-item header">Disk Forensics (Most likely a KAPE triage image)</div>
+  <div class="grid-item header"></div>
+  <div class="grid-item header"></div>
+  
+  <div class="grid-item header">Important Artifacts</div>
+  <div class="grid-item header"></div>
+  <div class="grid-item header"></div>
+  
+  <div class="grid-item header">Where To Find on a Dead System</div>
+  <div class="grid-item header"></div>
+  <div class="grid-item header">Investigation Tool</div>
+  
+  <div class="grid-item">C:\Windows\System32\config\SYSTEM</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">C:\Windows\System32\config\SOFTWARE</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">C:\Windows\System32\config\SAM</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">C:\Users\<USER>\NTUSER.dat</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">C:\Users\<user>\Local Settings\Application Data:\Microsoft\Windows\UsrClass.dat</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">C:\Windows\appcompat\Programs\Amcache.hve</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">C:\Windows\appcompat\Programs\Amcache.hve</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">C:\Windows\winevt\Logs\Security.evtx</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Event Logs Explorer / Event Viewer</div>
+  
+  <div class="grid-item">C:\Windows\winevt\Logs\SYSTEM.evtx</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Event Logs Explorer / Event Viewer</div>
+  
+  <div class="grid-item">C:\Windows\winevt\Logs\Application.evtx</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Event Logs Explorer / Event Viewer</div>
+  
+  <div class="grid-item">Microsoft-Windows-TaskScheduler%4Operational.evtx</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Event Logs Explorer / Event Viewer</div>
+  
+  <div class="grid-item header">System Info</div>
+  <div class="grid-item header"></div>
+  <div class="grid-item header"></div>
+  
+  <div class="grid-item">SOFTWARE\Microsoft\Windows NT\CurrentVersion</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">SYSTEM\ControlSet001\Control\ComputerName\ComputerName</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">SYSTEM\ControlSet001\Control\TimeZoneInformation</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item header">Network Information</div>
+  <div class="grid-item header"></div>
+  <div class="grid-item header"></div>
+  
+  <div class="grid-item">SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkCards</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">SYSTEM\ControlSet001\Services\Tcpip\Parameters\Interfaces</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item header">Users Information</div>
+  <div class="grid-item header"></div>
+  <div class="grid-item header"></div>
+  
+  <div class="grid-item">SAM</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">Security.evtx<br>4624 - Successful logon<br>4625 - Failed logon<br>4634 - Session terminated<br>4647 - User initiated logoff<br>4672 - Special Privilege logon<br>4720/4726 - Account Creation/Deletion</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">EventLog Explorer</div>
+  
+  <div class="grid-item header">File Activities</div>
+  <div class="grid-item header"></div>
+  <div class="grid-item header"></div>
+  
+  <div class="grid-item">$MFT, $LogFile, $UsnJrnl:$J</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">NTFS Log Tracker - Timeline explorer</div>
+  
+  <div class="grid-item">$I30</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">INDXRipper</div>
+  
+  <div class="grid-item">Security.evtx<br>○ 4656 - User tried to access an object<br>○ 4660 - object was deleted<br>○ 4663 - User accessed the objects successfuly<br>○ 4658 - the user closed the opened object<br>(file)</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Event Log Explorer</div>
+  
+  <div class="grid-item">NTUSER.dat<br>○ Software\Microsoft\Office\15.0\<Office application>\FileMRU<br>○ Software\Microsoft\Office\15.0\<Office application>\PlaceMRU<br>○ Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePidlMRU*<br>○ Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs<br>○ Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU<br>○ Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">Shellbags in NTUSER.dat and USRCLASS.dat</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Shellbags Explorer</div>
+  
+  <div class="grid-item">LNK files in Recent/Desktop Folders</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">LECmd</div>
+  
+  <div class="grid-item">JumpLists<br>○ C:\Users\<User>\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations<br>○ C:\Users\<User>\AppData\Roaming\Microsoft\Windows\Recent\CustomDestinations</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">JumpLists Explorer</div>
+  
+  <div class="grid-item header">Connected Devices (USBs)</div>
+  <div class="grid-item header"></div>
+  <div class="grid-item header"></div>
+  
+  <div class="grid-item">SYSTEM\ControlSet001\Enum\USB, USBSTOR</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">SYSTEM\ControlSet001\Enum\SWD\WPDBUSENUM</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">SYSTEM\ControlSet001\Control\DeviceClasses</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">SYSTEM\MountedDevices</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">SOFTWARE\Microsoft\Windows Portable</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">Devices\Devices</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">SOFTWARE\Microsoft\Windows Search\VolumeInfoCache</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item header">Execution Activities</div>
+  <div class="grid-item header"></div>
+  <div class="grid-item header"></div>
+  
+  <div class="grid-item">Security.evtx<br>- 4697 - service gets installed<br>SYSTEM.evtx<br>- 7034 - Service crashed<br>- 7035 - start/stop requests<br>- 7036 - service stopped/started</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Event Log Explorer</div>
+  
+  <div class="grid-item">- SOFTWARE\Microsoft\Windows\CurrentVersion\Run<br>- SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce<br>- SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run<br>- SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnce<br>- NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Run<br>- NTUSER.DAT\Software</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Registry Explorer</div>
+  
+  <div class="grid-item">SYSTEM\CurrentControlSet\Control\SessionManager\AppCompatCache\AppCompatCache</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">ShimCache Parser</div>
+  
+  <div class="grid-item">Amcache.hve</div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Amcache Parser</div>
+  
+  <div class="grid-item header">Memory Forensics</div>
+  <div class="grid-item header"></div>
+  <div class="grid-item header"></div>
+  
+  <div class="grid-item">What I'm looking for</div>
+  <div class="grid-item">Plugin</div>
+  <div class="grid-item">Command Line</div>
+  
+  <div class="grid-item">Identifying OS Version</div>
+  <div class="grid-item">imageinfo</div>
+  <div class="grid-item">Python vol.py -f <memdump> imageinfo</div>
+  
+  <div class="grid-item">Analyzing KDBG Sigs</div>
+  <div class="grid-item">kdbgscan</div>
+  <div class="grid-item">Python vol.py -f <memdump> kdgbscan</div>
+  
+  <div class="grid-item">Processes List</div>
+  <div class="grid-item">pslist</div>
+  <div class="grid-item">Python vol.py -f <memdump> --profile=<profile> -g <kdbg addr> pslist</div>
+  
+  <div class="grid-item">Parent/Child Process Relation</div>
+  <div class="grid-item">pstree</div>
+  <div class="grid-item">Python vol.py -f <memdump> --profile=<profile> -g <kdbg addr> pstree</div>
+  
+  <div class="grid-item">Hidden Processes</div>
+  <div class="grid-item">psxview</div>
+  <div class="grid-item">Python vol.py -f <memdump> --profile=<profile> -g <kdbg addr> psxview</div>
+  
+  <div class="grid-item">Examining Process Details</div>
+  <div class="grid-item">psinfo</div>
+  <div class="grid-item">Python vol.py -f <memdump> --profile=<profile> -g <kdbg addr> psinfo -o <processs physical location></div>
+  
+  <div class="grid-item">Process Privilege</div>
+  <div class="grid-item">getsides</div>
+  <div class="grid-item">python vol.py -f <memdump> --profile=<profile> -g <kdbg addr> getsids -o <process physical location></div>
+  
+  <div class="grid-item">Network Connections</div>
+  <div class="grid-item">netscan</div>
+  <div class="grid-item">Python vol.py -f <memdump> --profile=<profile> -g <kdbg addr> netscan</div>
+  
+  <div class="grid-item">Reg keys/values</div>
+  <div class="grid-item">printkey</div>
+  <div class="grid-item">Python vol.py -f <memdump> --profile=<profile> -g <kdbg addr> printkey -K <key_path></div>
+  
+  <div class="grid-item">Checking for persistence</div>
+  <div class="grid-item">winesap</div>
+  <div class="grid-item">Python vol.py -f <memdump> --profile=<profile> -g <kdbg addr> winesap</div>
+  
+  <div class="grid-item">MFT entries</div>
+  <div class="grid-item">mftparser</div>
+  <div class="grid-item">Python vol.py -f <memdump> --profile=
+</html>
