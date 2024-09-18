@@ -6,6 +6,7 @@ A medium-sized corporation has experienced a ransomware attack, first identified
 
 ## Walkthrough & Writeup
 
+### Looking at Microsoft Protection (MPlog.txt) logs
 ![2024-09-17_21-13](https://github.com/user-attachments/assets/6df25bd1-bdd5-4a60-a201-925ff9da4788)
 
 Starting with the Domain Controller (DC01), I look at the Defender logs to see if it has flagged anything on the system.
@@ -22,4 +23,55 @@ As we can see, the CobaltStrike executable is adding a file path to the exclusio
 -----------------------------
 ![2024-09-17_21-41](https://github.com/user-attachments/assets/ca68fad1-0fb0-4b47-8e87-c6e273d22f15)
 
-Comparing these two event logs, we can see two internal IP's -the DC, and one other- communicating over high port numbers right before the malicious software was installed.
+Comparing these two event logs, we can see two internal IP's -the DC, and one other- communicating through odd port numbers right before the malicious software was installed.
+
+To confirm that 192[.]168.170.142 is the IP address of the Domain Controller, I will look inside the SYSTEM root hive of the DC01 triage image.
+
+### Using Registry Explorer to locate the assigned IP of the DC01 machine
+![image](https://github.com/user-attachments/assets/2ae4bd77-00c5-463b-addb-010f6d6600af)
+
+It looks like this IP address is confirmed to be the only assigned IP to the DC01 system.
+
+To try and get a better understanding of the breadth of this attack, I'm pivoting to the SQL server, starting at the Defender logs again.
+
+### MPlogs on SQL server
+![2024-09-18_00-51](https://github.com/user-attachments/assets/190334d8-66ab-47b8-a910-0a7ad1fdb4d6)
+
+It looks like defender has detected and blocked cmd.exe from executing commands... we will investigate further.
+
+
+### Looking at Windows (Sysmon) Event Logs
+![2024-09-18_01-24](https://github.com/user-attachments/assets/a534d0b3-c850-4711-869a-0ecf71892685)
+
+The same PID is seen being spawned from the sqlservr executable file in the Program Files directory. This same cmd.exe process is seen using PowerShell to download powershell a script from a remote IP address.
+
+So far, we have confirmed two infections, but how did the attacker gain access to the SQL server? Luckily, in our KAPE data, we have MSSQL error logs, which can provide us with valuable insight into the server's activity during this timeframe.
+
+![2024-09-18_01-59](https://github.com/user-attachments/assets/f021d4cd-abae-499e-b18e-3157cfcc8718)
+
+What we can gather from these logs is that the attacker brute forced their way into the SQL server and subsequently enabled the "xp_cmdshell" feature, which spawns a windows terminal process, allowing the attacker to execute remote commands. 
+
+Moving back to the Sysmon logs, our attack timeline is becoming clearer. We see now that after xp_cmdshell is enabled, PowerShell is used to run a sequence of commands:
+1. Uses the PowerShell "IEX (New-Object Net.WebClient).DownloadString" to download a PS script from a remote host.
+2. Injects into winlogon.exe [PID 596] -> Creates Remote Pipe to \postex_c352 (CobaltStrike Post Exploitation Framework).
+3. Executes encoded PowerShell payloads in memory.
+4. Dumps lsass.exe process and extracts credentials.
+
+![2024-09-18_02-31](https://github.com/user-attachments/assets/df74830d-5008-49c0-89f9-009925bdcee0)
+
+Hmmm... This seems familiar, the payload is creating a Defender exclusion for the folder path on FileServer and DevPC "C:\".
+
+![2024-09-18_03-07](https://github.com/user-attachments/assets/8118d9d2-3f9c-4df0-81db-5d4edea98ca8)
+
+Firstly, On FileServer we see a malicious executable blocked by Defender.
+
+Now to look at DevPC...
+
+![2024-09-18_03-13](https://github.com/user-attachments/assets/9e222695-0021-4bb2-b905-46d162e65b56)
+
+32-bit version of Rundll32.exe creating vmware.exe in the Temp folder? This activity is not normal and definitely warrents investigation.
+
+![2024-09-18_03-17](https://github.com/user-attachments/assets/5f59fd04-6fea-4e31-bc76-95a4f612e9d4)
+
+### The malicious executable creates a README.txt in the Downloads folder then subsequently overwrites every file in the C:\ drive... looks like a successfull ransomware attack.
+
