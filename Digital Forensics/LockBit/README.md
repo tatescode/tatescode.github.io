@@ -67,11 +67,13 @@ Firstly, On FileServer we see a malicious executable blocked by Defender.
 
 Now to look at DevPC...
 
-![2024-09-18_03-13](https://github.com/user-attachments/assets/9e222695-0021-4bb2-b905-46d162e65b56)
+![2024-09-18_03-13](https://github.com/user-attachments/assets/a1d86f9a-4256-4396-82eb-bb2cf58de538)
 
 32-bit version of Rundll32.exe creating vmware.exe in the Temp folder? This activity is not normal and definitely warrents investigation.
 
 ![2024-09-18_03-17](https://github.com/user-attachments/assets/5f59fd04-6fea-4e31-bc76-95a4f612e9d4)
+
+![2024-09-18_03-19](https://github.com/user-attachments/assets/6977ac4a-8ba2-4ca6-9bce-14be52d264c8)
 
 ### The malicious executable creates a README.txt in the Downloads folder then subsequently overwrites every file in the C:\ drive... looks like a successfull ransomware attack.
 
