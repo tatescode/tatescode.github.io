@@ -1,6 +1,6 @@
 # Digital Forensics
 
-[Digital Forensics Cheatsheet](./Cheatsheet.html/)
+[Digital Forensics Cheatsheet](./Cheatsheet.html)
 
 Writeups
 -----------------------
