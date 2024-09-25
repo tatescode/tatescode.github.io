@@ -12,7 +12,6 @@ If the link is bolded, that means I am actively uploading to it.
 | [Scripting](./Scripting/)                              | Python, BASH, PowerShell                             | Practical scripts used for automation [In Progress]                       |
 | [MalwareTrafficAnalysis](./MalwareTrafficAnalysis/)    | WireShark, tshark, Linux, NetworkMiner               | Malicious network traffic analysis [Active]                               |
 
-## Use Cases
+## Featured Project
 
-The creation of this page serves as documentation of my personal learning journey, as well as a respository for certain projects. However, anyone can use and benefit from the projects and documentation in this repository.
-
+### [Threat Hunting & SIEM Engineering Lab](./ThreatHuntingLab/)
