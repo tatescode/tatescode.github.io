@@ -9,5 +9,9 @@
 2. Practical demonstration of threat detection and incident response.
 3. Application of technical and problem-solving skills relevant to SOC operations.
 
+## Contents
+
+1. Setting up the Virtual Private Cloud (VPC) environment with Vultr. [Link](./Stage1)
+
 ## Network Diagram [May Change Based on Project Needs]
 ![NetworkDiagram (1)](https://github.com/user-attachments/assets/3e86af42-63d2-4526-9742-7b792bf393e1)
