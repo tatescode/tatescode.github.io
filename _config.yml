@@ -2,7 +2,7 @@ title: Tate | Security+ | CDSA | CCD | CCNA [loading...]
 description: Entry-level SOC Analyst | Systems & Network Security Specialist
 show_downloads: true
 google_analytics: true
-theme: minimal-mistakes-jekyll
+jekyll-remote-theme: minimal-mistakes-jekyll
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
 - jekyll-include-cache
