@@ -15,6 +15,7 @@ I'm Tate, a passionate cybersecurity professional focusing on becoming a Securit
 | [Digital Forensics](./Digital%20Forensics/)              | Volatility, KAPE, Eric Zimmerman Tools, and more     | Writeups and documentation for performing Digital Forensics [Active]        |
 | [Scripting](./Scripting/)                                | Python, BASH, PowerShell                             | Practical scripts used for automation [In Progress]                         |
 | [MalwareTrafficAnalysis](./MalwareTrafficAnalysis/)      | WireShark, tshark, Linux, NetworkMiner               | Malicious network traffic analysis [Active]                                 |
+| [ThreatHunting](./ThreatHunting/)                        | Elastic SIEM, Splunk Enterprise                      | Endpoint and Network Threat Hunting in a SIEM                               |
 
 ## Core Competencies
 
