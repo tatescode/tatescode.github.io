@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANS Holiday Hack Challenge | Tate Greiner</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-gray-900 text-white py-4 fixed w-full top-0 z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="../" class="text-xl font-semibold flex items-center">
+                <i class="fas fa-chevron-left mr-2"></i>
+                Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-24 pb-12 bg-gradient-to-r from-blue-900 to-gray-900 text-white">
+        <div class="container mx-auto px-6 py-20">
+            <h1 class="text-4xl font-bold mb-4">SANS Holiday Hack Challenge</h1>
+            <p class="text-xl mb-8 max-w-2xl">Technical solutions and analysis from the annual SANS Holiday Hack Challenge, demonstrating practical security skills across multiple domains.</p>
+        </div>
+    </header>
+
+    <!-- Overview Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="bg-gray-50 rounded-lg p-8 shadow-lg">
+                <h2 class="text-2xl font-bold mb-6">Challenge Overview</h2>
+                <p class="text-gray-600 mb-6">
+                    Comprehensive technical analysis and solutions for various cybersecurity challenges, ranging from threat hunting to hardware hacking. Each challenge demonstrates practical application of security concepts and tools.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <i class="fas fa-shield-alt text-blue-600 text-2xl mb-4"></i>
+                        <h3 class="font-semibold mb-2">Defensive Security</h3>
+                        <p class="text-gray-600 text-sm">Threat hunting, SIEM analysis, and defensive PowerShell techniques</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <i class="fas fa-bug text-blue-600 text-2xl mb-4"></i>
+                        <h3 class="font-semibold mb-2">Offensive Security</h3>
+                        <p class="text-gray-600 text-sm">Web exploitation, mobile testing, and game security analysis</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <i class="fas fa-microscope text-blue-600 text-2xl mb-4"></i>
+                        <h3 class="font-semibold mb-2">Technical Analysis</h3>
+                        <p class="text-gray-600 text-sm">Malware analysis, hardware hacking, and OSINT techniques</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Challenges -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12">Technical Challenges</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Ransomware Analysis -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-virus text-red-500 text-2xl mr-4"></i>
+                        <h3 class="text-xl font-bold">Ransomware Analysis</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Reverse engineering analysis of ransomware behavior, encryption mechanisms, and persistence techniques.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Static Analysis</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Dynamic Analysis</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Behavioral Analysis</span>
+                    </div>
+                    <a href="./ransomware-analysis" class="text-blue-600 hover:text-blue-800">View Analysis →</a>
+                </div>
+
+                <!-- Web Application Security -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-globe text-blue-500 text-2xl mr-4"></i>
+                        <h3 class="text-xl font-bold">Web App Security</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">MQTT protocol exploitation and video feed manipulation in web applications.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">MQTT</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Video Streams</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Web Security</span>
+                    </div>
+                    <a href="./web-app-security" class="text-blue-600 hover:text-blue-800">View Analysis →</a>
+                </div>
+
+                <!-- Threat Hunting -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-search text-green-500 text-2xl mr-4"></i>
+                        <h3 class="text-xl font-bold">Threat Hunting with KQL</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Advanced threat hunting techniques using Kusto Query Language in Azure Sentinel.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">KQL</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Sentinel</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Detection Rules</span>
+                    </div>
+                    <a href="./threat-hunting" class="text-blue-600 hover:text-blue-800">View Analysis →</a>
+                </div>
+
+                <!-- PowerShell Security -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-terminal text-purple-500 text-2xl mr-4"></i>
+                        <h3 class="text-xl font-bold">PowerShell for Defense</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Defensive PowerShell techniques for security monitoring and incident response.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">PowerShell</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Security</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Automation</span>
+                    </div>
+                    <a href="./powershell-defense" class="text-blue-600 hover:text-blue-800">View Analysis →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Topics -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-8">Additional Explorations</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Hardware Hacking -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow">
+                    <i class="fas fa-microchip text-2xl text-gray-700 mb-4"></i>
+                    <h3 class="font-semibold mb-2">Hardware Hacking</h3>
+                    <p class="text-gray-600 text-sm">Physical security testing and hardware vulnerability analysis.</p>
+                    <a href="./hardware-hacking" class="text-blue-600 hover:text-blue-800 text-sm mt-4 inline-block">Learn More →</a>
+                </div>
+
+                <!-- Mobile Security -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow">
+                    <i class="fas fa-mobile-alt text-2xl text-gray-700 mb-4"></i>
+                    <h3 class="font-semibold mb-2">Mobile App Security</h3>
+                    <p class="text-gray-600 text-sm">Penetration testing of mobile applications and security analysis.</p>
+                    <a href="./mobile-security" class="text-blue-600 hover:text-blue-800 text-sm mt-4 inline-block">Learn More →</a>
+                </div>
+
+                <!-- OSINT -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow">
+                    <i class="fas fa-drone text-2xl text-gray-700 mb-4"></i>
+                    <h3 class="font-semibold mb-2">OSINT Analysis</h3>
+                    <p class="text-gray-600 text-sm">Advanced open-source intelligence gathering and drone path analysis.</p>
+                    <a href="./osint-analysis" class="text-blue-600 hover:text-blue-800 text-sm mt-4 inline-block">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>© 2024 There Is No Copyright lol.</p>
+        </div>
+    </footer>
+</body>
+</html>
