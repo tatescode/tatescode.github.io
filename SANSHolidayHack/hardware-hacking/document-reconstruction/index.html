@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Reconstruction Challenge | SANS Holiday Hack</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-gray-900 text-white py-4 fixed w-full top-0 z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <a href="../../" class="text-xl font-semibold flex items-center">
+                    <i class="fas fa-chevron-left mr-2"></i>
+                    Back to Challenges
+                </a>
+                <span class="text-gray-400">|</span>
+                <a href="../" class="text-lg hover:text-blue-400">Hardware Hacking</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-24 pb-12 bg-gradient-to-r from-blue-900 to-gray-900 text-white">
+        <div class="container mx-auto px-6 py-20">
+            <h1 class="text-4xl font-bold mb-4">Digital Detective: Document Reconstruction</h1>
+            <p class="text-xl mb-8 max-w-2xl">Python-based solution for reconstructing shredded documents containing UART configuration data</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-blue-500 bg-opacity-50 rounded-full text-sm">Python</span>
+                <span class="px-3 py-1 bg-blue-500 bg-opacity-50 rounded-full text-sm">Image Processing</span>
+                <span class="px-3 py-1 bg-blue-500 bg-opacity-50 rounded-full text-sm">NumPy</span>
+                <span class="px-3 py-1 bg-blue-500 bg-opacity-50 rounded-full text-sm">PIL</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-20">
+        <div class="container mx-auto px-6">
+            <!-- Challenge Overview -->
+            <section class="mb-16 bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-6">Challenge Overview</h2>
+                <p class="mb-6">
+                    This challenge involved reconstructing a shredded document containing crucial UART/serial configuration settings 
+                    for Santa's Little Helper (SLH) access card maintenance tool. The solution required developing a Python script 
+                    that could automatically analyze and reconstruct the document from individual strips.
+                </p>
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
+                    <h4 class="font-semibold mb-2">Key Objectives</h4>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700">
+                        <li>Develop automated image reconstruction algorithm</li>
+                        <li>Handle multiple image strips efficiently</li>
+                        <li>Maintain image quality for readability</li>
+                        <li>Recover UART configuration settings</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Technical Implementation -->
+            <section class="mb-16 bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-6">Technical Implementation</h2>
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4">Core Functions</h3>
+                    <div class="bg-gray-100 p-6 rounded-lg overflow-x-auto">
+                        <pre class="text-sm"><code>import os
+import numpy as np
+from PIL import Image
+
+def load_images(directory):
+    """Load and sort image slices"""
+    images = []
+    for filename in sorted(os.listdir(directory)):
+        if filename.endswith(('.png', '.jpg')):
+            img = Image.open(os.path.join(directory, filename)).convert('RGB')
+            images.append(np.array(img))
+    return images
+
+def calculate_similarity(slice1, slice2):
+    """Calculate similarity between two slices using multiple metrics"""
+    # Edge similarity (more pixels)
+    edge_width = 5
+    right_edge = slice1[:, -edge_width:]
+    left_edge = slice2[:, :edge_width]
+    edge_diff = np.sum((right_edge - left_edge) ** 2)
+    
+    # Color similarity in edge regions
+    color_diff = np.sum(np.abs(np.mean(right_edge, axis=1) - np.mean(left_edge, axis=1)))
+    
+    # Gradient similarity
+    right_grad = np.diff(right_edge.mean(axis=2), axis=1)
+    left_grad = np.diff(left_edge.mean(axis=2), axis=1)
+    gradient_diff = np.sum(np.abs(right_grad - left_grad))
+    
+    # Combine metrics with weights
+    return edge_diff * 0.5 + color_diff * 0.3 + gradient_diff * 0.2</code></pre>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4">Matching Algorithm</h3>
+                    <div class="bg-gray-100 p-6 rounded-lg overflow-x-auto">
+                        <pre class="text-sm"><code>def find_best_match(slices):
+    """Match slices using improved similarity metrics"""
+    if not slices:
+        return []
+    
+    # Start with the slice that has the most distinct left edge
+    left_edges = [np.var(slice[:, :5]) for slice in slices]
+    start_idx = np.argmax(left_edges)
+    
+    matched_slices = [slices.pop(start_idx)]
+    
+    while slices:
+        last_slice = matched_slices[-1]
+        similarities = [calculate_similarity(last_slice, slice) for slice in slices]
+        best_idx = np.argmin(similarities)
+        
+        # If similarity is too low, try reverse order
+        if min(similarities) > 1e7:
+            reverse_similarities = [calculate_similarity(slice, last_slice) for slice in slices]
+            if min(reverse_similarities) < min(similarities):
+                matched_slices.insert(0, slices.pop(best_idx))
+                continue
+        
+        matched_slices.append(slices.pop(best_idx))
+    
+    return matched_slices</code></pre>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4">Image Assembly</h3>
+                    <div class="bg-gray-100 p-6 rounded-lg overflow-x-auto">
+                        <pre class="text-sm"><code>def save_image(images, output_path):
+    """Combine and save matched slices"""
+    heights, widths = zip(*(i.shape[:2] for i in images))
+    total_width = sum(widths)
+    max_height = max(heights)
+    
+    new_image = Image.new('RGB', (total_width, max_height))
+    
+    x_offset = 0
+    for img in images:
+        pil_img = Image.fromarray(img)
+        new_image.paste(pil_img, (x_offset, 0))
+        x_offset += pil_img.width
+    
+    # Flip the final image horizontally
+    new_image = new_image.transpose(Image.FLIP_LEFT_RIGHT)
+    new_image.save(output_path)</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Details -->
+            <section class="mb-16 bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-6">Technical Details</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Key Components</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Multiple similarity metrics for accuracy</li>
+                            <li>Edge detection and comparison</li>
+                            <li>Color and gradient analysis</li>
+                            <li>Bidirectional matching capability</li>
+                            <li>Quality preservation techniques</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Algorithm Features</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Smart starting point selection</li>
+                            <li>Multiple matching metrics</li>
+                            <li>Reverse order consideration</li>
+                            <li>Quality-focused image assembly</li>
+                            <li>Automatic orientation correction</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Usage Instructions -->
+            <section class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-6">Usage Instructions</h2>
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold mb-4">Requirements</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>Python 3.x</li>
+                        <li>NumPy</li>
+                        <li>PIL (Python Imaging Library)</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-semibold mb-4">Running the Script</h3>
+                    <pre class="text-sm"><code>python reconstruct.py
+# Enter directory path when prompted
+Enter directory path containing image strips: ./shredded_docs/</code></pre>
+                </div>
+                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4">
+                    <h4 class="font-semibold mb-2">Important Notes</h4>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700">
+                        <li>Ensure image strips are in PNG or JPG format</li>
+                        <li>Images should be of similar dimensions</li>
+                        <li>Output will be saved as 'reconstructed.png'</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>© 2024 There Is No Copyright lol.</p>
+        </div>
+    </footer>
+</body>
+</html>
