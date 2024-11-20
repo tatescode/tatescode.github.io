@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Wizardry: Mastering CURL | Tate Greiner</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-gray-900 text-white py-4 fixed w-full top-0 z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="/" class="text-xl font-semibold">Tate Greiner</a>
+            <div class="space-x-6">
+                <a href="/" class="hover:text-blue-400">Home</a>
+                <a href="/#projects" class="hover:text-blue-400">Projects</a>
+                <a href="/#skills" class="hover:text-blue-400">Skills</a>
+                <a href="/#contact" class="hover:text-blue-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-24 pb-12 bg-gradient-to-r from-blue-900 to-gray-900 text-white">
+        <div class="container mx-auto px-6 py-20">
+            <h1 class="text-4xl font-bold mb-4">Web Wizardry: Mastering CURL</h1>
+            <p class="text-xl mb-8 max-w-2xl">A deep dive into HTTP/HTTPS concepts and CURL command options</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-20">
+        <div class="container mx-auto px-6">
+            <!-- Overview Section -->
+            <section class="mb-16 bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-6">Challenge Overview</h2>
+                <p class="mb-6">
+                    The challenge involved using CURL to interact with a web service at 'curlingfun', demonstrating understanding of HTTP/HTTPS concepts and CURL command options.
+                </p>
+            </section>
+
+            <!-- Challenge Components -->
+            <section class="mb-16 bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-6">Challenge Components</h2>
+                
+                <!-- Non-Standard Ports -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4">1. Non-Standard Ports</h3>
+                    <p class="mb-4"><em>Task:</em> Access webserver on non-standard port 8080</p>
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                        <code>curl http://curlingfun:8080/</code>
+                    </div>
+                    <p class="text-gray-600"><em>Concept:</em> Web services can run on ports other than standard 80/443</p>
+                </div>
+
+                <!-- Self-Signed Certificates -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4">2. Self-Signed Certificates</h3>
+                    <p class="mb-4"><em>Task:</em> Access HTTPS with self-signed cert</p>
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                        <code>curl -k https://curlingfun:9090/</code>
+                    </div>
+                    <p class="text-gray-600"><em>Concept:</em> <code>-k</code> flag allows accepting untrusted certificates</p>
+                </div>
+
+                <!-- POST Requests -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4">3. POST Requests</h3>
+                    <p class="mb-4"><em>Task:</em> Send POST with "skip=alabaster"</p>
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                        <code>curl -k -X POST -d "skip=alabaster" https://curlingfun:9090/</code>
+                    </div>
+                    <p class="text-gray-600"><em>Concept:</em> Sending data using HTTP POST method</p>
+                </div>
+
+                <!-- Cookie Management -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4">4. Cookie Management</h3>
+                    <p class="mb-4"><em>Task:</em> Send request with cookie "end=3"</p>
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                        <code>curl -k -b "end=3" https://curlingfun:9090/</code>
+                    </div>
+                    <p class="text-gray-600"><em>Concept:</em> Setting cookies in HTTP requests</p>
+                </div>
+
+                <!-- Viewing HTTP Headers -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4">5. Viewing HTTP Headers</h3>
+                    <p class="mb-4"><em>Task:</em> View HTTP headers in response</p>
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                        <code>curl -k -v https://curlingfun:9090/</code>
+                    </div>
+                    <p class="text-gray-600"><em>Concept:</em> Inspecting HTTP response headers</p>
+                </div>
+
+                <!-- Custom Headers -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4">6. Custom Headers</h3>
+                    <p class="mb-4"><em>Task:</em> Send custom header "Stone: Granite"</p>
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                        <code>curl -k -H "Stone: Granite" https://curlingfun:9090/</code>
+                    </div>
+                    <p class="text-gray-600"><em>Concept:</em> Adding custom headers to requests</p>
+                </div>
+
+                <!-- Path Preservation -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4">7. Path Preservation</h3>
+                    <p class="mb-4"><em>Task:</em> Access URL with special characters</p>
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                        <code>curl -k --path-as-is https://curlingfun:9090/../../etc/hacks</code>
+                    </div>
+                    <p class="text-gray-600"><em>Concept:</em> Preserving URL paths without normalization</p>
+                </div>
+            </section>
+
+            <!-- Bonus Challenge -->
+            <section class="mb-16 bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-6">Bonus Challenge</h2>
+                <p class="mb-4"><em>Hard Mode:</em> Combine multiple requirements in one command</p>
+                <div class="bg-gray-100 p-4 rounded-lg mb-6">
+                    <code>curl -k -X POST -d "skip=bow" -b "end=10" -H "Hack: 12ft" https://curlingfun:9090/</code>
+                </div>
+            </section>
+
+            <!-- Key Learning Points -->
+            <section class="mb-16 bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-6">Key Learning Points</h2>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>CURL command-line options</li>
+                    <li>HTTP/HTTPS concepts</li>
+                    <li>Web security considerations</li>
+                    <li>Certificate handling</li>
+                    <li>HTTP methods and headers</li>
+                    <li>Cookie management</li>
+                    <li>URL path handling</li>
+                </ul>
+            </section>
+
+            <!-- Solution Strategy -->
+            <section class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-6">Solution Strategy</h2>
+                <ol class="list-decimal list-inside space-y-2">
+                    <li>Understand each individual requirement</li>
+                    <li>Test commands separately first</li>
+                    <li>Look for ways to combine flags efficiently</li>
+                    <li>Verify each step's success</li>
+                    <li>Consider security implications</li>
+                </ol>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p>tatescode</p>
+                </div>
+                <div class="space-x-4">
+                    <a href="https://linkedin.com/in/tategreiner" class="hover:text-blue-400">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:mail@greinerinfosec.com" class="hover:text-blue-400">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
