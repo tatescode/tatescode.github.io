@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Ubuntu Security Analysis Workstation Setup Script
-# This script sets up an Ubuntu desktop for security analysis and malware investigation
+# Ubuntu Workstation Setup
+# This script sets up an Ubuntu desktop with some basic tools for secops activities
 # Run this script as root or with sudo privileges
-# Tested on Ubuntu 22.04 LTS
+# Tested on Ubuntu 22.04 LTS - If one ore more packages don't install, simply add a "#" symbol in front of it's line of code and the script will skip over it.
 
 # Exit on any error
 set -e
