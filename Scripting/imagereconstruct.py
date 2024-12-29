@@ -1,15 +1,16 @@
-import os
-from PIL import Image
-import numpy as np
-from pathlib import Path
+import os # For file/dir operations
+from PIL import Image # For image handling
+import numpy as np # For numerical operations
+from pathlib import Path # For path handling
 
 def load_shreds(directory):
     """Load all jpg images from directory"""
-    shreds = []
-    for filename in os.listdir(directory):
-        if filename.endswith('.jpg'):
-            path = os.path.join(directory, filename)
-            img = Image.open(path)
+    shreds = [] # Creates an empty list to store image pieces
+    # Loops through each file in the directory
+    for filename in os.listdir(directory):  
+        if filename.endswith('.jpg'): # Only jpg files (added this in case I have a dir full of different file types)
+            path = os.path.join(directory, filename) # Create full filepath
+            img = Image.open(path) # Opens image and then converts to numpy array and stores
             shreds.append(np.array(img))
     return shreds
 
